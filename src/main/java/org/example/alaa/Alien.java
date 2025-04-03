@@ -52,6 +52,9 @@ public class Alien {
         this.laptops = laptops;
     }
 
+    /*
+    fetch type eager
+     */
     @Override
     public String toString() {
         return "Alien{" +
@@ -61,4 +64,20 @@ public class Alien {
                 ", laptops=" + laptops +
                 '}';
     }
+
+
+    /*
+    Fetch type lazy won't get the related entity
+    Hibernate: select l1_0.aliens_id,l1_1.id,l1_1.brand,l1_1.model,l1_1.ram from laptop_alien_table l1_0
+     join laptop l1_1 on l1_1.id=l1_0.laptops_id where l1_0.aliens_id=?
+
+     */
+//    @Override
+//    public String toString() {
+//        return "Alien{" +
+//                "id=" + id +
+//                ", aName='" + aName + '\'' +
+//                ", tech='" + tech + '\'' +
+//                '}';
+//    }
 }
